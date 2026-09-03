@@ -11,6 +11,7 @@ const TURNOS_ = [
   ['turno-3', 'Turno 3', '20:00', '21:30', 9, 'Venta'],
   ['turno-4', 'Turno 4', '21:30', '23:00', 9, 'Venta y desarmado de stand']
 ];
+const ACCESS_CODE_MIN_ = 6;
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
@@ -23,7 +24,7 @@ function doGet() {
 function configurar_() {
   const props = PropertiesService.getScriptProperties();
   if (!props.getProperty('SPREADSHEET_ID')) throw new Error('Configura SPREADSHEET_ID en las propiedades del script.');
-  if ((props.getProperty('ACCESS_CODE') || '').length < 12) throw new Error('Configura ACCESS_CODE con al menos 12 caracteres.');
+  if ((props.getProperty('ACCESS_CODE') || '').length < ACCESS_CODE_MIN_) throw new Error('Configura ACCESS_CODE con al menos ' + ACCESS_CODE_MIN_ + ' caracteres.');
   locked_(function () {
     const book = book_();
     Object.keys(HEADERS_).forEach(function (name) {
@@ -56,7 +57,7 @@ function book_() {
 }
 function auth_(code) {
   const expected = PropertiesService.getScriptProperties().getProperty('ACCESS_CODE');
-  if (!expected || expected.length < 12 || typeof code !== 'string' || code !== expected) throw new Error('Código de acceso incorrecto. Solicítalo a la directiva.');
+  if (!expected || expected.length < ACCESS_CODE_MIN_ || typeof code !== 'string' || code !== expected) throw new Error('Código de acceso incorrecto. Solicítalo a la directiva.');
 }
 function locked_(fn) {
   const lock = LockService.getScriptLock();
@@ -178,9 +179,9 @@ function downloadSummary(code) {
   } finally { DriveApp.getFileById(temp.getId()).setTrashed(true); }
 }
 
-/** Solo editor: carga el archivo privado una vez, sin exponerlo por RPC. */
+/** Solo editor: carga una vez los datos incluidos en este archivo. */
 function cargarDatosIniciales_() {
-  if (typeof datosIniciales_ !== 'function') throw new Error('Agrega primero el archivo privado DatosIniciales.gs.');
+  if (typeof datosIniciales_ !== 'function') throw new Error('Falta datosIniciales_ en Code.gs.');
   locked_(function () {
     const props = PropertiesService.getScriptProperties();
     if (props.getProperty('SEED_LOADED') === 'true') throw new Error('Los datos iniciales ya fueron cargados.');
@@ -193,6 +194,7 @@ function cargarDatosIniciales_() {
     props.setProperty('SEED_LOADED', 'true');
   });
 }
+/** Visible en el desplegable del editor; las funciones con _ no aparecen ahí. */
 function setup() {
   configurar_();
 }
@@ -201,7 +203,7 @@ function seed() {
   cargarDatosIniciales_();
 }
 
-/** PRIVADO: copiar solo al editor de Apps Script. No subir a GitHub. */
+/** Datos de la planilla original. Ejecutar solo con seed() desde el editor. */
 function datosIniciales_() {
   return {
   "people": [

@@ -6,7 +6,7 @@ Aplicación pequeña para inscribir adultos en turnos, registrar donaciones y pr
 
 ## Cómo funciona
 
-- **GitHub:** mantiene el código. Opcionalmente, GitHub Pages publica una página de acceso que redirige a la aplicación.
+- **GitHub:** mantiene el código. Opcionalmente, GitHub Pages publica una página de acceso que muestra la aplicación en un iframe.
 - **Google Apps Script:** sirve la interfaz completa y procesa los registros.
 - **Google Sheets privado:** guarda turnos, participantes y aportes. La directiva administra los datos desde allí.
 - **Código del curso:** se pide antes de mostrar nombres o permitir registros. Solo se configura en el servidor.
@@ -20,21 +20,19 @@ No se necesitan npm, un backend Node, base de datos adicional, tokens de GitHub 
 ```text
 repo/                         ← subir únicamente el contenido de esta carpeta
   apps-script/
-    Code.gs                   ← lógica de servidor
+    Code.gs                   ← lógica de servidor, carga inicial y setup/seed
     Index.html                ← aplicación para apoderados
     appsscript.json            ← permisos y zona horaria
   docs/
-    index.html                ← página opcional de GitHub Pages
+    index.html                ← página opcional de GitHub Pages (iframe)
     config.js                 ← URL de Apps Script; nunca el código del curso
   tests/backend.test.cjs       ← pruebas locales con servicios Google simulados
   README.md
   INSTALACION.md
   ADMINISTRACION.md
-privado/                      ← fuera del repositorio
-  DatosIniciales.gs            ← nombres y aportes de la planilla original
 ```
 
-**Comienza por [INSTALACION.md](INSTALACION.md).** El archivo privado viene en el paquete de entrega, separado de `repo/`; no forma parte del repositorio público.
+**Comienza por [INSTALACION.md](INSTALACION.md).** La carga inicial (`datosIniciales_`) está en `Code.gs`; se ejecuta una vez con `seed` desde el editor.
 
 ## Funciones incluidas
 
@@ -45,7 +43,7 @@ privado/                      ← fuera del repositorio
 - Estados de entrega y devolución administrados desde Sheets.
 - Excel real `.xlsx` con tres hojas de resumen, generado bajo demanda.
 - Impresión con ambos apartados y participantes desplegados; el navegador puede guardar como PDF.
-- Código compartido, sin persistirlo en el almacenamiento del navegador.
+- Código compartido (mínimo 6 caracteres), sin persistirlo en el almacenamiento del navegador.
 - Cierre administrativo de inscripciones mediante propiedad de configuración.
 
 ## Carga inicial y aspectos por revisar
@@ -81,7 +79,7 @@ Las pruebas simulan Google Sheets, los bloqueos y la respuesta del servicio de e
 ## Alcance y mantenimiento
 
 - El código compartido permite ver nombres y descargar el resumen. Está pensado para el grupo del curso; no verifica la identidad de cada persona. Quien lo conoce puede registrar un nombre. Las correcciones las hace la directiva.
-- Los datos no se guardan en GitHub, ni en el navegador, ni en una copia de Excel que cada persona deba volver a subir.
+- Las inscripciones nuevas no se guardan en GitHub ni en el navegador. La carga inicial sí viaja en `Code.gs`. Cada persona no debe volver a subir un Excel.
 - La pantalla consulta al entrar, al actualizar y después de un registro. No hay sincronización continua; el servidor siempre revalida el cupo al confirmar.
 - Una persona puede participar en más de un turno. El contador muestra inscripciones, no personas únicas del curso.
 - El bloqueo coordina los registros de la web, no las ediciones manuales simultáneas de Sheets. Cierra inscripciones al realizar ajustes masivos.

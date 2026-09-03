@@ -69,6 +69,6 @@ Antes de ajustes masivos, cierra registros y espera a que terminen las ejecucion
 - **Imprimir / PDF** actualiza la información y prepara ambos apartados; selecciona “Guardar como PDF” en el diálogo del navegador.
 - Para un respaldo completo, la directiva puede descargar directamente el libro de Google Sheets. Ese respaldo sí incluye las tablas internas.
 - Mantén el libro restringido a la directiva; no uses “Publicar en la web”.
-- Quien tenga el código del curso puede ver nombres y descargar el resumen. Si el código se comparte fuera del grupo, reemplaza `ACCESS_CODE` en las propiedades del script y distribuye el nuevo solo al curso. No se guarda en el navegador.
+- Quien tenga el código del curso puede ver nombres y descargar el resumen. El código debe tener al menos 6 caracteres. Si se comparte fuera del grupo, reemplaza `ACCESS_CODE` en las propiedades del script y distribuye el nuevo solo al curso. No se guarda en el navegador.
 
 Después del evento puedes cerrar registros y archivar la implementación en Apps Script si ya no debe ser accesible.

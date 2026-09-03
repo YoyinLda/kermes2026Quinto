@@ -48,6 +48,13 @@ test('todas las operaciones de datos requieren el código; falla cerrado si falt
   const h=harness();for(const method of ['getState','registerPeople','registerDonation','downloadSummary'])assert.throws(()=>h.ctx[method]('incorrecto',{}),/Código/);
   delete h.props.ACCESS_CODE;assert.throws(()=>h.ctx.getState(h.code),/Código/);assert.equal(h.tables.Inscripciones.length,1);
 });
+test('acepta ACCESS_CODE de 6 caracteres y rechaza uno más corto',()=>{
+  const h=harness();
+  h.props.ACCESS_CODE='123456';
+  assert.equal(h.ctx.getState('123456').shifts.length,2);
+  h.props.ACCESS_CODE='12345';
+  assert.throws(()=>h.ctx.getState('12345'),/Código/);
+});
 test('dos adultos consumen dos cupos; referencia familiar no cuenta',()=>{
   const h=harness();const result=h.ctx.registerPeople(h.code,req({names:['Ana Pérez','José Pérez']}));
   assert.equal(result.state.shifts[0].participants.length,2);assert.equal(result.state.shifts[0].available,0);assert.equal(h.tables.Inscripciones.length,3);

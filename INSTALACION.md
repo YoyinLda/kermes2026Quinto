@@ -26,21 +26,21 @@ En **Configuración del proyecto → Propiedades del script**, agrega:
 | Propiedad | Valor |
 |---|---|
 | `SPREADSHEET_ID` | ID del Google Sheets del paso 1 |
-| `ACCESS_CODE` | Código largo que elegirás y compartirás solo con el curso; mínimo 12 caracteres |
+| `ACCESS_CODE` | Código que compartirás solo con el curso; mínimo 6 caracteres (pueden ser 6 dígitos) |
 
 No escribas el código en `config.js`, en el HTML, en GitHub ni en la URL.
 
-En el editor, selecciona la función **`configurar_`** y pulsa **Ejecutar**. Autoriza los permisos solicitados por tu propio proyecto. Se crearán `Turnos`, `Inscripciones` y `Aportes`, sin borrar otras hojas. Puedes borrar después la pestaña vacía original `Hoja 1`.
+En el editor, selecciona la función **`setup`** (envuelve a `configurar_`) y pulsa **Ejecutar**. Las funciones que terminan en `_` no aparecen en el desplegable. Autoriza los permisos solicitados por tu propio proyecto. Se crearán `Turnos`, `Inscripciones` y `Aportes`, sin borrar otras hojas. Puedes borrar después la pestaña vacía original `Hoja 1`.
 
 La configuración se puede volver a ejecutar: no borra registros ni vuelve a insertar turnos si ya existen. No cambies los encabezados de las tablas.
 
 ## 4. Cargar lo que ya estaba inscrito
 
-1. Abre el archivo **`privado/DatosIniciales.gs`** del paquete descargado.
-2. En Apps Script, crea un archivo de **secuencia de comandos** llamado `DatosIniciales` y pega su contenido.
-3. Ejecuta **`cargarDatosIniciales_`** desde el editor.
-4. Comprueba en Sheets que hay 24 filas de personas y 5 aportes, además de los encabezados.
-5. Elimina el archivo `DatosIniciales` del proyecto de Apps Script después de comprobar la carga; ya no se necesita para operar. Conserva tu copia privada como respaldo.
+Los nombres y aportes de la planilla original ya están en `Code.gs` (`datosIniciales_`). No hace falta un archivo aparte.
+
+1. En el desplegable elige **`seed`** (envuelve a `cargarDatosIniciales_`).
+2. Pulsa **Ejecutar**.
+3. Comprueba en Sheets que hay 24 filas de personas y 5 aportes, además de los encabezados.
 
 Los IDs de la carga inicial son estables y la propiedad `SEED_LOADED` evita repetirla. Si la primera ejecución falla a mitad, un nuevo intento completa las filas faltantes sin duplicar las ya insertadas. No borres `SEED_LOADED` para volver a cargar una planilla que ya estás usando.
 
@@ -61,7 +61,7 @@ La URL `/dev` es de prueba para editores; **no la compartas como enlace final**.
 
 ## 6. Subir el código a GitHub
 
-Sube **solo el contenido de `repo/`**. Nunca subas el ZIP completo, `privado/`, el Excel original o `DatosIniciales.gs`.
+Sube **solo el contenido de `repo/`**. Nunca subas el ZIP completo, una carpeta `privado/` suelta ni el Excel original.
 
 Opción terminal: crea primero un repositorio vacío llamado, por ejemplo, `kermesse-2026` y ejecuta desde la carpeta `repo`:
 
