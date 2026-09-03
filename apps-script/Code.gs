@@ -15,7 +15,8 @@ const TURNOS_ = [
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
     .setTitle('Kermés 2026 · 5° básico')
-    .addMetaTag('viewport', 'width=device-width, initial-scale=1');
+    .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 
 /** Ejecutar desde el editor, una sola vez. Nunca borra registros existentes. */
