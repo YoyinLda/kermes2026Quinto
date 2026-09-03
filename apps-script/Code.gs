@@ -193,3 +193,296 @@ function cargarDatosIniciales_() {
     props.setProperty('SEED_LOADED', 'true');
   });
 }
+function setup() {
+  configurar_();
+}
+
+function seed() {
+  cargarDatosIniciales_();
+}
+
+/** PRIVADO: copiar solo al editor de Apps Script. No subir a GitHub. */
+function datosIniciales_() {
+  return {
+  "people": [
+    [
+      "seed-E4-0",
+      "armado",
+      "Javiera",
+      "Gaspar Valdivia",
+      "Confirmado",
+      "",
+      "seed-original-E4"
+    ],
+    [
+      "seed-E5-0",
+      "armado",
+      "Ignacio Cheuque",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E5"
+    ],
+    [
+      "seed-E6-0",
+      "armado",
+      "Mauricio Pinto",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E6"
+    ],
+    [
+      "seed-E6-1",
+      "armado",
+      "Vivi",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E6"
+    ],
+    [
+      "seed-E7-0",
+      "armado",
+      "Vicente García",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E7"
+    ],
+    [
+      "seed-E10-0",
+      "turno-1",
+      "Paula Villarruel",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E10"
+    ],
+    [
+      "seed-E10-1",
+      "turno-1",
+      "Pame Moya",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E10"
+    ],
+    [
+      "seed-E11-0",
+      "turno-1",
+      "Julieta Arriagada",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E11"
+    ],
+    [
+      "seed-E12-0",
+      "turno-1",
+      "Isabella Pacheco",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E12"
+    ],
+    [
+      "seed-E13-0",
+      "turno-1",
+      "Lucila Gaete",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E13"
+    ],
+    [
+      "seed-E14-0",
+      "turno-1",
+      "Alejandro Astorga",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E14"
+    ],
+    [
+      "seed-E15-0",
+      "turno-1",
+      "Pilar Lalinde",
+      "Camilo Correa",
+      "Confirmado",
+      "",
+      "seed-original-E15"
+    ],
+    [
+      "seed-E16-0",
+      "turno-1",
+      "Maite Vega C.",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E16"
+    ],
+    [
+      "seed-E19-0",
+      "turno-2",
+      "Millaray López",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E19"
+    ],
+    [
+      "seed-E20-0",
+      "turno-2",
+      "Samuel Acevedo",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E20"
+    ],
+    [
+      "seed-E21-0",
+      "turno-2",
+      "Emilia Matus",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E21"
+    ],
+    [
+      "seed-E22-0",
+      "turno-2",
+      "Soledad",
+      "Julieta Eremeev",
+      "Confirmado",
+      "",
+      "seed-original-E22"
+    ],
+    [
+      "seed-E23-0",
+      "turno-2",
+      "B.",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E23"
+    ],
+    [
+      "seed-E24-0",
+      "turno-2",
+      "María Pía Muñoz",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E24"
+    ],
+    [
+      "seed-E25-0",
+      "turno-2",
+      "Rosita",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E25"
+    ],
+    [
+      "seed-E28-0",
+      "turno-3",
+      "Gabriela",
+      "Ignacio Caso",
+      "Confirmado",
+      "",
+      "seed-original-E28"
+    ],
+    [
+      "seed-E39-0",
+      "turno-4",
+      "Rodrigo Sánchez",
+      "Mailen",
+      "Confirmado",
+      "",
+      "seed-original-E39"
+    ],
+    [
+      "seed-E40-0",
+      "turno-4",
+      "Pauli Salas",
+      "",
+      "Confirmado",
+      "",
+      "seed-original-E40"
+    ],
+    [
+      "seed-E41-0",
+      "turno-4",
+      "Paula",
+      "Duffé",
+      "Confirmado",
+      "",
+      "seed-original-E41"
+    ]
+  ],
+  "donations": [
+    [
+      "seed-donation-2",
+      "GUANTES DE NITRILO (CONFIRMAR DE CABRITILLA TB)",
+      "FAMILIA SÁNCHES SALAS",
+      "",
+      "",
+      "Por confirmar",
+      "Pendiente",
+      "Importado del Excel: confirmar cantidad, tipo de aporte y entrega.",
+      "",
+      "seed-original-donation-2"
+    ],
+    [
+      "seed-donation-3",
+      "CAJAS DE SEGURIDAD",
+      "FAMILIA SÁNCHES SALAS",
+      "",
+      "",
+      "Por confirmar",
+      "Pendiente",
+      "Importado del Excel: confirmar cantidad, tipo de aporte y entrega.",
+      "",
+      "seed-original-donation-3"
+    ],
+    [
+      "seed-donation-4",
+      "PLATOS DE CARTÓN",
+      "BÁRBARA",
+      "",
+      "",
+      "Por confirmar",
+      "Pendiente",
+      "Importado del Excel: confirmar cantidad, tipo de aporte y entrega.",
+      "",
+      "seed-original-donation-4"
+    ],
+    [
+      "seed-donation-5",
+      "VASOS PLÁSTICOS",
+      "BÁRBARA",
+      "",
+      "",
+      "Por confirmar",
+      "Pendiente",
+      "Importado del Excel: confirmar cantidad, tipo de aporte y entrega.",
+      "",
+      "seed-original-donation-5"
+    ],
+    [
+      "seed-donation-6",
+      "SERVILLETAS",
+      "FAMILIA GARCÍA (VICENTE)",
+      "",
+      "",
+      "Por confirmar",
+      "Pendiente",
+      "Importado del Excel: confirmar cantidad, tipo de aporte y entrega.",
+      "",
+      "seed-original-donation-6"
+    ]
+  ]
+};
+}
