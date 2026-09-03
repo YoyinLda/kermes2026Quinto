@@ -1,0 +1,9 @@
+privado/
+DatosIniciales.gs
+*.xlsx
+*.csv
+.clasp.json
+.clasprc.json
+.env*
+.DS_Store
+node_modules/
