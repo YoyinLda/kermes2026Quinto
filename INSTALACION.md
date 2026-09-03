@@ -94,7 +94,7 @@ window.KERMES_APP_URL = 'https://script.google.com/macros/s/ID_DE_TU_IMPLEMENTAC
 
 La disponibilidad de Pages para repositorios privados depende del plan. Puedes mantener el repositorio privado y compartir directamente la URL de Apps Script, o publicar únicamente el código sin datos personales en un repositorio público.
 
-En GitHub Pages aparece un botón hacia la aplicación. El formulario completo funciona en el dominio de Google. Si no has configurado la URL, la página indica que la organización está preparando las inscripciones; no simula registros.
+GitHub Pages redirige de inmediato a la aplicación. El formulario del código y los registros funcionan en el dominio de Google. Si no has configurado la URL, la página indica que la organización está preparando las inscripciones; no simula registros.
 
 ## 8. Prueba real antes de compartir
 

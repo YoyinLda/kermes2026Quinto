@@ -6,7 +6,7 @@ Aplicación pequeña para inscribir adultos en turnos, registrar donaciones y pr
 
 ## Cómo funciona
 
-- **GitHub:** mantiene el código. Opcionalmente, GitHub Pages publica una página de acceso con un botón hacia la aplicación.
+- **GitHub:** mantiene el código. Opcionalmente, GitHub Pages publica una página de acceso que redirige a la aplicación.
 - **Google Apps Script:** sirve la interfaz completa y procesa los registros.
 - **Google Sheets privado:** guarda turnos, participantes y aportes. La directiva administra los datos desde allí.
 - **Código del curso:** se pide antes de mostrar nombres o permitir registros. Solo se configura en el servidor.
